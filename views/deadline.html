@@ -1,0 +1,34 @@
+<div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+  <label for="name">{{prompts.text}}</label>
+  <input class="form-control" 
+         type="text" 
+         name="name" 
+         ng-model="name" 
+         ng-change="change()"
+         ng-required="true">
+</div>
+
+<div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+  <label for="dashFI">{{prompts.dashFI}}</label>
+  <input class="form-control" 
+         type="text" 
+         name="dashFI" 
+         ng-model="dashFI" 
+         ng-change="change()"
+         ng-required="true">
+</div>
+
+<div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+  <label for="formNumber">{{prompts.formNumber}}</label>
+  <input class="form-control" 
+         type="text" 
+         name="formNumber" 
+         ng-model="formNumber" 
+         ng-change="change()"
+         ng-required="true">
+</div>
+
+<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <label for="description">{{prompts.readyToTestMessage}}:</label>
+  <div class="rcorners" ng-click="selectText('readyToTest')"ready-to-test></div>
+</div>

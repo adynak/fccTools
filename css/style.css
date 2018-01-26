@@ -1,0 +1,13 @@
+.navbar-white {
+  text-align: center;
+  color: white;
+  font-size: 1.25em;
+  padding-right: 10px;
+  padding-top: 15px;
+}
+
+.rcorners {
+    border-radius: 25px;
+    border: 2px solid #72BE06;
+    padding: 20px; 
+}

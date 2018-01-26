@@ -1,23 +1,30 @@
-var ffcFilters = angular.module('ffcFilters', []);
+var ffcTools = angular.module('ffcTools', []);
 
-ffcFilters.filter('titlecase', function() {
-    return function (input) {
-        var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
+var ffcTools = angular.module('ffcTools', 
+        [
+            'ngRoute'
+        ]);
 
-        input = input.toLowerCase();
-        return input.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title) {
-            if (index > 0 && index + match.length !== title.length &&
-                match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
-                (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&
-                title.charAt(index - 1).search(/[^\s-]/) < 0) {
-                return match.toLowerCase();
-            }
+ffcTools.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    
+    $locationProvider.hashPrefix(''); 
 
-            if (match.substr(1).search(/[A-Z]|\../) > -1) {
-                return match;
-            }
+    document.title = txtNavigation.brandName;
 
-            return match.charAt(0).toUpperCase() + match.substr(1);
-        });
-    }
-});
+    $routeProvider.
+		when('/deadline', {
+			templateUrl: 'views/deadline.html',
+			controller: 'deadlineController'
+		}).
+			otherwise({
+			redirectTo: '/deadline'
+		}
+	);
+
+	}]).run(function($rootScope, $location) {
+		$rootScope.$on("$routeChangeStart", function(event, next, current) {
+			// thre is nothing special that we need to do here for this application
+		});
+	}
+);
+
