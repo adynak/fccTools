@@ -1,4 +1,4 @@
-ffcTools.controller('deadlineController', 
+ffcTools.controller('clarifyToolsController', 
     [
         '$scope',
         '$filter',

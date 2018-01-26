@@ -12,12 +12,12 @@ ffcTools.config(['$routeProvider', '$locationProvider', function($routeProvider,
     document.title = txtNavigation.brandName;
 
     $routeProvider.
-		when('/deadline', {
-			templateUrl: 'views/deadline.html',
-			controller: 'deadlineController'
+		when('/clarifyTools', {
+			templateUrl: 'views/clarifyTools.html',
+			controller: 'clarifyToolsController'
 		}).
 			otherwise({
-			redirectTo: '/deadline'
+			redirectTo: '/clarifyTools'
 		}
 	);
 
