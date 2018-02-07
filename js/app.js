@@ -1,8 +1,9 @@
-var ffcTools = angular.module('ffcTools', []);
+// var ffcTools = angular.module('ffcTools', []);
 
 var ffcTools = angular.module('ffcTools', 
         [
-            'ngRoute'
+            'ngRoute',
+            'ngMessages'
         ]);
 
 ffcTools.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {

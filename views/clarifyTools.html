@@ -1,39 +1,65 @@
-<div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
-  <label for="name">{{prompts.text}}</label>
-  <input class="form-control" 
-         type="text" 
-         name="name" 
-         ng-model="name" 
-         ng-change="change()"
-         ng-required="true">
-</div>
+<form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate="">
+  <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+    <label for="name">{{prompts.text}}</label>
+    <input class="form-control" 
+           type="text" 
+           name="name" 
+           ng-model="name" 
+           ng-change="change()"
+           ng-required="false">
+  </div>
 
-<div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
-  <label for="dashFI">{{prompts.dashFI}}</label>
-  <input class="form-control" 
-         type="text" 
-         name="dashFI" 
-         ng-model="dashFI" 
-         ng-change="change()"
-         ng-required="true">
-</div>
+  <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+    <label for="dashFI">{{prompts.dashFI}}</label>
+    <input class="form-control" 
+           type="text" 
+           name="dashFI" 
+           ng-model="dashFI" 
+           ng-change="change()"
+           ng-required="false">
+  </div>
 
-<div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
-  <label for="formNumber">{{prompts.formNumber}}</label>
-  <input class="form-control" 
-         type="text" 
-         name="formNumber" 
-         ng-model="formNumber" 
-         ng-change="change()"
-         ng-required="true">
-</div>
+  <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+    <label for="formNumber">{{prompts.formNumber}}</label>
+    <input class="form-control" 
+           type="text" 
+           name="formNumber" 
+           ng-model="formNumber" 
+           ng-change="change()"
+           ng-required="false">
+  </div>
 
-<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <label for="description">{{prompts.readyToTestMessage}}:</label>
-  <div class="rcorners" ng-click="selectText('readyToTest')" ready-to-test></div>
-</div>
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="description">{{prompts.readyToTestMessage}}:</label>
+    <div class="rcorners" ng-click="selectText('readyToTest')" ready-to-test></div>
+  </div>
 
-<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <label for="description">{{prompts.closeNoReply}}:</label>
-  <div class="rcorners" ng-click="selectText('closeNoReply')" close-no-reply></div>
-</div>
+  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <label for="description">{{prompts.closeNoReply}}:</label>
+    <div class="rcorners" ng-click="selectText('closeNoReply')" close-no-reply></div>
+  </div>
+
+  <div class="form-group col-xs-10 col-sm-2 col-md-2 col-lg-2">
+    <div class="rcorners">
+      <label for="eFormsIP">{{prompts.eFormsIP}}</label>
+      <input type="text" 
+         placeholder={{prompts.eformsIPplaceholder}}
+         class="form-control" 
+         name="eFormsIP" 
+         ng-model="eFormsIP" 
+         ng-pattern="/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/" 
+         required />
+
+      <div class="error" ng-messages="userForm.eFormsIP.$error">
+        <div ng-message="pattern">{{prompts.addressError}}</div>
+      </div> 
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" 
+              type="button" 
+              ng-disabled="userForm.$invalid"
+              ng-click="btnRedirect();">{{prompts.eFormsRedirect}}
+      </button>
+
+    </div>
+  </div>
+</form>
