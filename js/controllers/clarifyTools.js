@@ -22,7 +22,6 @@ ffcTools.controller('clarifyToolsController',
 		$scope.btnRedirect = function(){
 			var url = "http://" + $scope.eFormsIP + "/fi/Tools/eForm-Inspector.html";
 			$scope.eFormsIP = '';
-			$scope.addressError = '';
 			window.open(url, '_blank');
 		}
 
